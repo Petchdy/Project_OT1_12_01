@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>This is the Home Page. Thanks for visiting us</h1>
+
+<br>
+<h2>เดือน 1 (มกราคม) </h2>
+<br>
+<h4>summary:</h4>
+<h5><pre>{{groupdata}}</pre></h5>
+
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal">Free</h5>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">asdf</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal">Free</h5>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">asdf</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal">Free</h5>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">asdf</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<ul>
+{% for covid in covids_list %}
+  <li>{{covid.title}} ({{covid.troubled}} {{covid.level}}, genre: "{{covid.genre}}")</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Compare page.</h1>
+<br>
+
+<section class="layout">
+  <form method="get">
+    {% csrf_token %}
+    <div class="col-sm-6 p-3 ">
+      <button type="submit">Compare</button>
+    </div>
+    <div class="container-fluid mt-3">
+        <div class="row">
+          <div class="col-sm-6 p-3 ">
+            <div name="left">
+                <h1>L</h1>
+                <select name="ddlleft" id="ddlleft" class="dropdown">
+                  <option value="1" {% if leftdata.selectedmonth == '1' %}selected{% endif %}>January</option>
+                  <option value="2" {% if leftdata.selectedmonth == '2' %}selected{% endif %}>February</option>
+                  <option value="3" {% if leftdata.selectedmonth == '3' %}selected{% endif %}>March</option>
+                  <option value="4" {% if leftdata.selectedmonth == '4' %}selected{% endif %}>April</option>
+                  <option value="5" {% if leftdata.selectedmonth == '5' %}selected{% endif %}>May</option>
+                  <option value="6" {% if leftdata.selectedmonth == '6' %}selected{% endif %}>June</option>
+                  <option value="7" {% if leftdata.selectedmonth == '7' %}selected{% endif %}>July</option>
+                  <option value="8" {% if leftdata.selectedmonth == '8' %}selected{% endif %}>August</option>
+                  <option value="9" {% if leftdata.selectedmonth == '9' %}selected{% endif %}>September</option>
+                  <option value="10" {% if leftdata.selectedmonth == '10' %}selected{% endif %}>October</option>
+                  <option value="11" {% if leftdata.selectedmonth == '11' %}selected{% endif %}>November</option>
+                  <option value="12" {% if leftdata.selectedmonth == '12' %}selected{% endif %}>December</option>
+                </select>
+                <br>
+                <div class="container mt-3">
+                  {% if leftdata.selectedmonth != '0' %}
+                    <img src="data:image/png;base64,{{leftdata.graph|safe}}" class="img-thumbnail" alt="Cinque Terre" width="500" height="350">
+                  {% endif %}
+                  </div>
+            </div>
+        </div>
+          <div class="col-sm-6 p-3 ">
+            <div name="right">
+                <h1>R</h1>
+                <select name="ddlright" id="ddlright" class="dropdown">
+                  <option value="1" {% if rightdata.selectedmonth == '1' %}selected{% endif %}>January</option>
+                  <option value="2" {% if rightdata.selectedmonth == '2' %}selected{% endif %}>February</option>
+                  <option value="3" {% if rightdata.selectedmonth == '3' %}selected{% endif %}>March</option>
+                  <option value="4" {% if rightdata.selectedmonth == '4' %}selected{% endif %}>April</option>
+                  <option value="5" {% if rightdata.selectedmonth == '5' %}selected{% endif %}>May</option>
+                  <option value="6" {% if rightdata.selectedmonth == '6' %}selected{% endif %}>June</option>
+                  <option value="7" {% if rightdata.selectedmonth == '7' %}selected{% endif %}>July</option>
+                  <option value="8" {% if rightdata.selectedmonth == '8' %}selected{% endif %}>August</option>
+                  <option value="9" {% if rightdata.selectedmonth == '9' %}selected{% endif %}>September</option>
+                  <option value="10" {% if rightdata.selectedmonth == '10' %}selected{% endif %}>October</option>
+                  <option value="11" {% if rightdata.selectedmonth == '11' %}selected{% endif %}>November</option>
+                  <option value="12" {% if rightdata.selectedmonth == '12' %}selected{% endif %}>December</option>
+                </select>
+                <br>
+                <div class="container mt-3">
+                  {% if rightdata.selectedmonth != '0' %}
+                    <img src="data:image/png;base64,{{rightdata.graph|safe}}"  class="img-thumbnail" alt="Cinque Terre" width="500" height="350">
+                  {% endif %}
+                </div> 
+            </div>
+          </div>
+        </div>
+    </div>
+  </form>
+</section>
+
+{% endblock  %}

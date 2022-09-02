@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>This is the covids MAIN page.</h1>
+<h3>Link to the website pages:</h3>
+
+<div class="container">
+  <div class="row"></div>
+    {% for covid in covids_list %}
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-heading bg-success text-white">Texts</div>
+        <div class="card-body"> {{covid.title}} ({{covid.troubled}} {{covid.level}}, genre: "{{covid.genre}}") </div>
+      </div>
+    </div>
+    <div class="row">
+    {% endfor %}
+</div>
+
+{% endblock %}
